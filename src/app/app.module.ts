@@ -107,7 +107,7 @@ import { DisplayCatalogOperateurComponent } from './components/operateur/subComp
       {path: 'operateur/planning', component: DisplayPlanningsOperateurComponent},
       {path: 'operateur/referentiel', component: DisplayReferentielComponent},
       {path: 'client/message', component: SignalementNvProblemeComponent},
-
+      {path: 'intervenant/interventions', component: DisplayInterventionsComponent},
 
      // {path: 'edit/:id',component: EditKoComponent},
       {path: '', redirectTo: '/home', pathMatch:'full'}

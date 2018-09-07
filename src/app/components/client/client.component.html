@@ -8,7 +8,36 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#about">Accueil</a>
+           <button type="button" id="modalClient" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Contact</button>
+                    
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" data-backdrop="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="false">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Recipient:</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Message:</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Send message</button>
+                  </div>
+                </div>
+              </div>
+            </div>
         </li>
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="#services">Nous contacter</a>
@@ -25,15 +54,13 @@
 <header class="masthead text-center text-white d-flex " id="interlist">
   <div class="container-fluid my-auto" style="position:fixed; height:97%; ">
     <div class="row">
-        <div class="col-lg-2 col-sm-2 col-xs-2 col-md-2 left_col scroll-view " style="position:fixed; height:97%; ">
+        <div class="col-lg-2 col-sm-2 col-xs-2 col-md-2 left_col scroll-view " style="position:fixed; height:100%; ">
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <div class="navbar nav_title" style="border: 0;">
-                <div class="site_title">
-                  <i class="fa fa-paw"></i>
-                  <span>Loncoto</span>
-                </div>
-              </div>
-          
+                  <h3 class="titre">Loncoto</h3>
+                  <br>
+                  <br>
+                  <br>
+
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
