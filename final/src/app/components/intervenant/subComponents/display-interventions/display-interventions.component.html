@@ -1,0 +1,286 @@
+<nav class="navbar navbar-expand-lg navbar-light fixed-top " id="mainNav">
+  <div class="container">
+
+
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" pageScroll href="#tableauinter">
+            <Table>Les interventions</Table>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" pageScroll href="#editer">Créer/Editer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" routerLink='/home'>
+            <i class="fa fa-power-off"></i> Deconnexion</a>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+  <div class="navbar-brand js-scroll-trigger">Bonjour, Intervenant {{nom_intervenant}}</div>
+</nav>
+
+<header class="masthead text-center  d-flex " id="tableauinter">
+  <div class="container-fluid my-auto " style="height:97%; ">
+    <div class="row">
+
+
+      <!-- sidebar menu -->
+      <div class="col-lg-2 col-sm-2 col-xs-2 col-md-2 left_col scroll-view " style="position:fixed; height:97%; ">
+
+
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+          
+              <h3 class="titre">Loncoto</h3>
+         <br>
+         <br>
+
+          <div class="menu_section">
+            <h3>General</h3>
+            <ul class="nav side-menu">
+              <li>
+                <a routerLink='/intervenant'>
+                  <i class="fa fa-home"></i> Tableau de bord
+                  <span class="fa "></span>
+                </a>
+              </li>
+              <li>
+                <a routerLink='/intervenant/planning'>
+                  <i class="fa fa-edit"></i> Planning
+                  <span class="fa "></span>
+                </a>
+              </li>
+              <li>
+                <a routerLink='/intervenant/interventions'>
+                  <i class="fa fa-table"></i> Interventions
+                  <span class="fa "></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="menu_section">
+            <h3>Live On</h3>
+            <ul class="nav side-menu">
+              <li>
+                <a routerLink='/intervenant/message' pageScroll href="#messagerie">
+                  <i class="fa fa-bug"></i> Messagerie
+                  <span class="fa "></span>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <i class="fa fa-windows"></i> Extras
+                  <span class="fa "></span>
+                </a>
+              </li>
+
+
+            </ul>
+          </div>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+        </div>
+
+
+      </div>
+      <!-- /sidebar menu -->
+
+
+      <div class="col-lg-10 col-sm-10 col-xs-10 col-md-10 placeenhaut">
+
+        <div class="panel panel-danger">
+          <div class="page-title">
+            <div class="title_left">
+              <h3 class="text-white"> Interventions Enregistrées
+              </h3>
+            </div>
+
+            <div class="title_right">
+              <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search for...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+
+
+
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel" style="height: 100%;">
+                <div class="x_title">
+                  <h2>Interventions
+                    <small>dernières mise à jour le 02/09/2018.19:58:02</small>
+                  </h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <button class="btn btn-warning" (click)="details(0)" pageScroll href="#intervention">Modifier</button>
+                    <li>
+                      <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                      </a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <i class="fa fa-wrench"></i>
+                      </a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li>
+                          <a href="#">Settings 1</a>
+                        </li>
+                        <li>
+                          <a href="#">Settings 2</a>
+                        </li>
+
+
+
+                      </ul>
+                    </li>
+                    <li>
+                      <a class="close-link">
+                        <i class="fa fa-close"></i>
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <p class="text-muted font-13 m-b-30">
+                    DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction
+                    function:
+                    <code>$().DataTable();</code>
+                  </p>
+
+                  <table class="table table-striped bordered">
+                    <thead>
+                      <tr>
+                        <th>Site</th>
+                        <th>Intervenant</th>
+                        <th>Materiel</th>
+                        <th>Date/h début</th>
+                        <th>Date/h fin</th>
+                        <th>Statut</th>
+
+
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let intervention of interventionsSubject |async">
+                        <td>{{intervention.materiel.lesite.nom}}</td>
+                        <td>{{intervention.intervenant.nom}}</td>
+                        <td>{{intervention.materiel.article.marque}}</td>
+                        <td>{{intervention.start}}</td>
+                        <td>{{intervention.end}}</td>
+                        <td>{{intervention.statut}}</td>
+                        <td>
+                          <a type="button" (click)="details(intervention.id)" class=" btn-primary btn-xs" pageScroll href="#editer">
+                            <i class="fa fa-user"> </i> Détails
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="row">
+                    <div class="col-lg-7"></div>
+                    <div class="col-lg-5">
+                      <pagination style="margin-top: 0px;padding-top: 0px;padding-bottom: 0px;border-bottom: 0px" [totalItems]="totalItems" [ngModel]="currentPage"
+                        [itemsPerPage]="taillePage" (pageChanged)="pageChanged($event)"></pagination>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="bg-primary backgroundallpage" id="editer">
+  <div class="col-lg-2 col-sm-2 col-xs-2 col-md-2"></div>
+  <div class="col-lg-10 col-sm-10 col-xs-10 col-md-10 ">
+
+
+    
+    <div class="col-lg-6">
+      <div class="col-lg-8 mx-auto text-center">
+
+        <div class=" well">
+
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              Modifier/Créer un Nouveau Intervention ?
+            </div>
+            <div class="panel-body">
+
+
+              <form>
+                <input type="hidden" name="id" id="id" [(ngModel)]="currentIntervention.id" />
+
+                <div class="form-group">
+                  <label>Intervenant</label>
+                  <select name="intervenant" [(ngModel)]="currentIntervention.intervenant">
+                    <option  *ngFor="let intervenant of intervenantsSubject |async" [ngValue]="intervenant" >{{intervenant.nom}} {{intervenant.prenom}}</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Materiel</label>
+                  <select name="materiel" [(ngModel)]="currentIntervention.materiel">
+                    <option  *ngFor="let materiel of materielsSubject |async" [ngValue]="materiel" >Site :{{materiel.lesite.nom}} - {{materiel.article.marque}} -- {{materiel.article.nom}} {{materiel.article.serialID}}</option>
+                  </select>
+                </div>
+
+      
+                <div class="form-group">
+                  <label>Date</label>
+                  <input type="date" class="form-control" name="date" id="date" [(ngModel)]="currentIntervention.datePrevu" [(ngModel)]="currentIntervention.start"
+                    [(ngModel)]="currentIntervention.end" />
+                </div>
+                <div class="form-group">
+                  <label>Titre</label>
+                  <input type="text" class="form-control" name="title" id="title" [(ngModel)]="currentIntervention.title" />
+                </div>
+
+
+
+                <button class="btn btn-warning" (click)="cancelIntervention()">annuler</button>
+                <button class="btn btn-sucess" (click)="saveIntervention()" pageScroll href="#tableaux">save/créer</button>
+              </form>
+
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+  </div>
+</section>

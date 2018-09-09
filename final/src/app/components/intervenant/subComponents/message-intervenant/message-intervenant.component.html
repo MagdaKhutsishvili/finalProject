@@ -1,0 +1,21 @@
+<div style="text-align:center">
+  <h2 class="well">
+   Singaler le problem
+  </h2>
+ <div class="container">
+ <div class="col-md-10">
+ <div class="form-area"> 
+ <form role="form">
+ <br style="clear:both">
+ <div class="form-group">
+ <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" [(ngModel)]="subject" required>
+ </div>
+ <div class="form-group">
+ <textarea class="form-control" type="textarea" id="message" name="message" placeholder="Message" [(ngModel)]="message" maxlength="140" rows="7"></textarea>              
+ </div>
+ <button type="button" id="submit" name="submit" class="btn btn-primary pull-right" (click)="save(name, email, mobile, subject, message)">Envoyer</button>
+ </form>
+ </div>
+ </div>
+ </div>
+</div>
