@@ -9,3 +9,7 @@
     .titre {
         font-family: 'Abril Fatface', cursive;
     }
+  
+    .x_panel[_ngcontent-c1] {
+        background: #627a9e;
+    }

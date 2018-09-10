@@ -1,37 +1,37 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top " id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">{{nom_client}}</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">Planning</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Interventions</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio">Referentiels</a>
-          </li>
-  
-        </ul>
-      </div>
+  <div class="container">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">{{nom_client}}</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#about">Planning</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#services">Interventions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#portfolio">Referentiels</a>
+        </li>
+
+      </ul>
     </div>
-  </nav>
-  
-  <header class="masthead text-center text-white d-flex " id="interlist">
-    <div class="container-fluid my-auto" style="position:fixed; height:97%; ">
-      <div class="row">
-          <div class="col-lg-2 col-sm-2 col-xs-2 col-md-2 left_col scroll-view " style="position:fixed; height:100%; ">
-              
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <h3 class="titre">Loncoto</h3>
-              <br>
-              <br>
-              <br>
+  </div>
+</nav>
+
+<header class="masthead text-center text-white d-flex " id="interlist">
+  <div class="container-fluid my-auto" style="position:fixed; height:97%; ">
+    <div class="row">
+      <div class="col-lg-2 col-sm-2 col-xs-2 col-md-2 left_col scroll-view " style="position:fixed; height:100%; ">
+
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+          <h3 class="titre">Loncoto</h3>
+          <br>
+          <br>
+          <br>
 
           <div class="menu_section">
             <h3>General</h3>
@@ -39,7 +39,7 @@
               <li>
                 <a routerLink='/client'>
                   <i class="fa fa-home"></i> Accueil
-                  <span class="fa "></span> 
+                  <span class="fa "></span>
                 </a>
               </li>
               <li>
@@ -48,10 +48,10 @@
                   <span class="fa "></span>
                 </a>
               </li>
-             
+
             </ul>
           </div>
-      
+
           <div class="menu_section">
             <h3>Live On</h3>
             <ul class="nav side-menu">
@@ -69,77 +69,67 @@
               </li>
             </ul>
           </div>
- 
-        </div>
-          </div>
 
-  <div class="right_col" role="main">
-      <div class="">
-        <div class="page-title">
-          <div class="title_left">
-            <h3><small>Mes Interventions</small></h3>
-          </div>
-  
-          <div class="title_right">
-            <div class="col-md-12 col-sm-12 col-xs-12 form-group pull-right top_search">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button">Go!</button>
-                </span>
-              </div>
+        </div>
+      </div>
+
+      <div class="right_col" role="main" class="col-lg-8 col-sm-8 col-xs-8 col-md-8 placeenhaut">
+        <div class="">
+          <div class="page-title">
+            <div class="title_left">
+             
             </div>
           </div>
-        </div>
-  
-      <div class="clearfix"></div>
-        <div  class="col-lg-8 col-sm-10 col-xs-10 col-md-10 placeenhaut">       
-           <div class="row">
-            <div class="x_panel">
-              <div class="x_title">
-                <h2>Mes Interventions </h2>
-                
-              
-              </div>
-              <div class="x_content">
-  
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
+
+         
+            <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 placeenhaut">
+              <div class="row" class="col-lg-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Mes Interventions </h2>
+                  </div>
+                  <div class="x_content">
+
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
                           <th>DatePrevu</th>
                           <th>DateEffectue</th>
                           <th>Statut</th>
                           <th>Commentaire</th>
                           <th>Matériel</th>
                           <th>Intervenant</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let intervention of interventionsObservable | async">
-                      <td>{{intervention.id}}</td>
-                      <td>{{intervention.datePrevu}}</td>
-                      <td>{{intervention.dateEffectue}}</td>
-                      <td>{{intervention.statut}}</td>
-                      <td>{{intervention.commentaire}}</td>
-                      <td>{{intervention.id_Materiel}}</td>
-                      <td>{{intervention.id_Intervenant}}</td>
-                     
-                    </tr>
-                  </tbody>
-                </table>
-                <div class="clearfix"></div>
-                <div class="col-lg-8 mx-auto text-center">
-                         <pagination style="margin-top: 0px;padding-top: 0px;padding-bottom: 0px;border-bottom: 0px" [totalItems]="totalItems" [ngModel]="currentPage"
-                         [itemsPerPage]="taillePage" (pageChanged)="pageChanged($event)"></pagination>
-                     </div>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let intervention of interventionsSubject | async">
+                          <td>{{intervention.id}}</td>
+                          <td>{{intervention.start}}</td>
+                          <td>{{intervention.end}}</td>
+                          <td>{{intervention.statut}}</td>
+                          <td>{{intervention.commentaire}}</td>
+                          <td>{{intervention.materiel.id}}</td>
+                          <td>{{intervention.intervenant.id}}</td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                    <div class="clearfix">
+                    <div class="col-lg-8 mx-auto text-center">
+                      <pagination style="margin-top: 0px;padding-top: 0px;padding-bottom: 0px;border-bottom: 0px" [totalItems]="totalItems" [ngModel]="currentPage"
+                        [itemsPerPage]="taillePage" (pageChanged)="pageChanged($event)"></pagination>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+          
+        </div>
       </div>
     </div>
   </div>
-  </div>
-  </div>
-  </header>
-  
+</header>
+
+ 
