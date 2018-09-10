@@ -25,7 +25,7 @@
   <header class="masthead text-center text-white d-flex " id="interlist">
     <div class="container-fluid my-auto" style="position:fixed; height:97%; ">
       <div class="row">
-          <div class="col-lg-2 col-sm-2 col-xs-2 col-md-2 left_col scroll-view " style="position:fixed; height:97%; ">
+          <div class="col-lg-2 col-sm-2 col-xs-2 col-md-2 left_col scroll-view " style="position:fixed; height:100%; ">
               
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <h3 class="titre">Loncoto</h3>
@@ -72,62 +72,74 @@
  
         </div>
           </div>
-            <div class="col-lg-10 col-sm-10 col-xs-10 col-md-10 placeenhaut">
-      
-                <div class="panel panel-danger">
-                    <div class="panel-heading">
-                      <h2 class="section-heading text-white">Les Interventions</h2>
-                    </div>
-                    <div class="panel-body">
-                
-                      <div class="panel panel-primary">
-                        <div class="panel-heading"> {{ title }} </div>
-                        <div class="panel-body">
-                          <table class="table table-striped table-hover table-dark" border="1">
-                
-                            <thead>
-                              <tr>
-                                <th>ID</th>
-                                <th>DatePrevu</th>
-                                <th>DateEffectue</th>
-                                <th>Statut</th>
-                                <th>Commentaire</th>
-                                <th>MatérielId</th>
-                                <th>IntervenantId</th>
-                
-                
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr *ngFor="let intervention of interventionsSubject | async">
-                                <td>{{intervention.id}}</td>
-                                <td>{{intervention.datePrevu}}</td>
-                                <td>{{intervention.dateEffectue}}</td>
-                                <td>{{intervention.statut}}</td>
-                                <td>{{intervention.commentaire}}</td>
-                                <td>{{intervention.id_Materiel}}</td>
-                                <td>{{intervention.id_Intervenant}}</td>
-                
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                
-                    </div>
-                  </div>
 
-      </div></div>
-    </div>
-  </header>
-  <section class="bg-primary" id="editinter">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto text-center">
-            <pagination style="margin-top: 0px;padding-top: 0px;padding-bottom: 0px;border-bottom: 0px" [totalItems]="totalItems" [ngModel]="currentPage"
-            [itemsPerPage]="taillePage" (pageChanged)="pageChanged($event)"></pagination>
-        <!--  <app-signalement-nv-probleme></app-signalement-nv-probleme>-->
+  <div class="right_col" role="main">
+      <div class="">
+        <div class="page-title">
+          <div class="title_left">
+            <h3><small>Mes Interventions</small></h3>
+          </div>
+  
+          <div class="title_right">
+            <div class="col-md-12 col-sm-12 col-xs-12 form-group pull-right top_search">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button">Go!</button>
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
+  
+      <div class="clearfix"></div>
+        <div  class="col-lg-8 col-sm-10 col-xs-10 col-md-10 placeenhaut">       
+           <div class="row">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Mes Interventions </h2>
+                
+              
+              </div>
+              <div class="x_content">
+  
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                          <th>DatePrevu</th>
+                          <th>DateEffectue</th>
+                          <th>Statut</th>
+                          <th>Commentaire</th>
+                          <th>Matériel</th>
+                          <th>Intervenant</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let intervention of interventionsObservable | async">
+                      <td>{{intervention.id}}</td>
+                      <td>{{intervention.datePrevu}}</td>
+                      <td>{{intervention.dateEffectue}}</td>
+                      <td>{{intervention.statut}}</td>
+                      <td>{{intervention.commentaire}}</td>
+                      <td>{{intervention.id_Materiel}}</td>
+                      <td>{{intervention.id_Intervenant}}</td>
+                     
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="clearfix"></div>
+                <div class="col-lg-8 mx-auto text-center">
+                         <pagination style="margin-top: 0px;padding-top: 0px;padding-bottom: 0px;border-bottom: 0px" [totalItems]="totalItems" [ngModel]="currentPage"
+                         [itemsPerPage]="taillePage" (pageChanged)="pageChanged($event)"></pagination>
+                     </div>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
-  </section>
+  </div>
+  </div>
+  </div>
+  </header>
+  

@@ -1,7 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top " id="mainNav">
   <div class="container">
-
-
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
@@ -11,7 +9,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" pageScroll href="#editer">Créer/Editer</a>
+          <a class="nav-link js-scroll-trigger" pageScroll href="#editer">Editer</a>
         </li>
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" routerLink='/home'>
@@ -26,12 +24,12 @@
 </nav>
 
 <header class="masthead text-center  d-flex " id="tableauinter">
-  <div class="container-fluid my-auto " style="height:97%; ">
+  <div class="container-fluid my-auto " style="height:100%; ">
     <div class="row">
 
 
       <!-- sidebar menu -->
-      <div class="col-lg-2 col-sm-2 col-xs-2 col-md-2 left_col scroll-view " style="position:fixed; height:97%; ">
+      <div class="col-lg-2 col-sm-2 col-xs-2 col-md-2 left_col scroll-view " style="position:fixed; height:100%; ">
 
 
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
@@ -120,6 +118,32 @@
               </div>
             </div>
           </div>
+          <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#navbarResponsive">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+          
           <div class="panel-body">
 
 
@@ -128,59 +152,27 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel" style="height: 100%;">
                 <div class="x_title">
-                  <h2>Interventions
-                    <small>dernières mise à jour le 02/09/2018.19:58:02</small>
+                  <h2> Interventions
+                   
                   </h2>
                   <ul class="nav navbar-right panel_toolbox">
                     <button class="btn btn-warning" (click)="details(0)" pageScroll href="#intervention">Modifier</button>
-                    <li>
-                      <a class="collapse-link">
-                        <i class="fa fa-chevron-up"></i>
-                      </a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <i class="fa fa-wrench"></i>
-                      </a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li>
-                          <a href="#">Settings 1</a>
-                        </li>
-                        <li>
-                          <a href="#">Settings 2</a>
-                        </li>
-
-
-
-                      </ul>
-                    </li>
-                    <li>
-                      <a class="close-link">
-                        <i class="fa fa-close"></i>
-                      </a>
-                    </li>
+                      
                   </ul>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                  <p class="text-muted font-13 m-b-30">
-                    DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction
-                    function:
-                    <code>$().DataTable();</code>
-                  </p>
 
                   <table class="table table-striped bordered">
                     <thead>
                       <tr>
                         <th>Site</th>
-                        <th>Intervenant</th>
-                        <th>Materiel</th>
-                        <th>Date/h début</th>
-                        <th>Date/h fin</th>
+                        <th>DatePrevu</th>
+                        <th>DateEffectue</th>
                         <th>Statut</th>
-
-
-
+                        <th>Commentaire</th>
+                        <th>Matériel</th>
+                        <th>Intervenant</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -223,64 +215,6 @@
 <section class="bg-primary backgroundallpage" id="editer">
   <div class="col-lg-2 col-sm-2 col-xs-2 col-md-2"></div>
   <div class="col-lg-10 col-sm-10 col-xs-10 col-md-10 ">
-
-
-    
-    <div class="col-lg-6">
-      <div class="col-lg-8 mx-auto text-center">
-
-        <div class=" well">
-
-          <div class="panel panel-danger">
-            <div class="panel-heading">
-              Modifier/Créer un Nouveau Intervention ?
-            </div>
-            <div class="panel-body">
-
-
-              <form>
-                <input type="hidden" name="id" id="id" [(ngModel)]="currentIntervention.id" />
-
-                <div class="form-group">
-                  <label>Intervenant</label>
-                  <select name="intervenant" [(ngModel)]="currentIntervention.intervenant">
-                    <option  *ngFor="let intervenant of intervenantsSubject |async" [ngValue]="intervenant" >{{intervenant.nom}} {{intervenant.prenom}}</option>
-                  </select>
-                </div>
-
-                <div class="form-group">
-                  <label>Materiel</label>
-                  <select name="materiel" [(ngModel)]="currentIntervention.materiel">
-                    <option  *ngFor="let materiel of materielsSubject |async" [ngValue]="materiel" >Site :{{materiel.lesite.nom}} - {{materiel.article.marque}} -- {{materiel.article.nom}} {{materiel.article.serialID}}</option>
-                  </select>
-                </div>
-
-      
-                <div class="form-group">
-                  <label>Date</label>
-                  <input type="date" class="form-control" name="date" id="date" [(ngModel)]="currentIntervention.datePrevu" [(ngModel)]="currentIntervention.start"
-                    [(ngModel)]="currentIntervention.end" />
-                </div>
-                <div class="form-group">
-                  <label>Titre</label>
-                  <input type="text" class="form-control" name="title" id="title" [(ngModel)]="currentIntervention.title" />
-                </div>
-
-
-
-                <button class="btn btn-warning" (click)="cancelIntervention()">annuler</button>
-                <button class="btn btn-sucess" (click)="saveIntervention()" pageScroll href="#tableaux">save/créer</button>
-              </form>
-
-
-            </div>
-          </div>
-        </div>
-
-
-      </div>
-    </div>
-
-
+<app-edit-interventions></app-edit-interventions>
   </div>
 </section>
